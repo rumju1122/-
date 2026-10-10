@@ -12,10 +12,10 @@ tabs.forEach((tab,index)=>{tab.addEventListener('click',()=>selectGroup(tab));ta
 selectGroup(tabs[0]);
 const navLinks=[...document.querySelectorAll('.section-nav a')];
 if('IntersectionObserver' in window){const observer=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting)navLinks.forEach(link=>link.classList.toggle('active',link.hash==='#'+entry.target.id))})},{rootMargin:'-15% 0px -65% 0px',threshold:0});document.querySelectorAll('main>section[id]').forEach(section=>observer.observe(section));}
-
 const mapInfo={central:{kicker:'CENTRAL ADMIN',title:'중앙행정',body:'헌터협회·행정·병원이 모인 도시의 중심입니다. 등록, 치료, 의뢰와 공식적인 지원을 가장 먼저 확인할 수 있습니다.',facts:[['위치','도시 중앙'],['접근','방벽 내부 · 안전']]},commercial:{kicker:'LIVING ZONE',title:'상업생활',body:'주거·상점·식당과 중고PART, 의뢰 중개가 모인 생활권입니다. 정비 전후에 필요한 물자와 사람을 만납니다.',facts:[['위치','북서 생활권'],['위험도','Ⅰ–Ⅱ']]},guild:{kicker:'GUILD QUARTER',title:'길드',body:'벡터·패스파인더·아이기스의 거점입니다. 지원을 받는 대신 수익 배분과 팀의 책임을 나눕니다.',facts:[['위치','북동 생활권'],['위험도','Ⅰ–Ⅱ']]},industry:{kicker:'INDUSTRIAL YARD',title:'산업정비',body:'신규 야드와 정비소, PART 창고와 물류·폐기 시설이 밀집한 구역입니다. 기체와 부품의 시작점입니다.',facts:[['위치','서남 산업권'],['위험도','Ⅰ–Ⅱ']]},research:{kicker:'RESEARCH QUARTER',title:'연구격리',body:'게이트 연구와 감정, 위험물 보관이 이뤄지는 통제구역입니다. 허가와 절차 없이 접근하지 마세요.',facts:[['위치','남부 통제구역'],['위험도','Ⅱ–Ⅲ']]},wall:{kicker:'OUTER WALL',title:'외곽방벽',body:'출입문·검문과 원정 집결, 수송·구조가 이뤄지는 방벽 구역입니다. 출격 전 퇴로와 귀환 시간을 확인합니다.',facts:[['위치','도시 외곽'],['접근','검문 · 허가 필요']]}};
 const mapDetail=document.querySelector('#map-detail');
 const mapButtons=[...document.querySelectorAll('.map-hotspot')];
 function selectMapArea(key){const info=mapInfo[key];if(!info||!mapDetail)return;mapButtons.forEach(button=>button.classList.toggle('is-selected',button.dataset.map===key));mapDetail.innerHTML='<span class="map-detail-kicker">'+info.kicker+'</span><h3>'+info.title+'</h3><p>'+info.body+'</p><div>'+info.facts.map(f=>'<b>'+f[0]+'</b><span>'+f[1]+'</span>').join('')+'</div>';}
 mapButtons.forEach(button=>button.addEventListener('click',()=>selectMapArea(button.dataset.map)));
+document.addEventListener('click',event=>{const button=event.target.closest?.('.map-hotspot');if(button)selectMapArea(button.dataset.map);});
 selectMapArea('central');
