@@ -49,3 +49,12 @@
 .map-interaction .map-zone-wall{fill:rgba(20,30,20,.001)}
 
 .map-switch{display:flex;align-items:center;gap:10px;margin:0 0 15px}.map-switch label{font:600 12px var(--mono);letter-spacing:1px;white-space:nowrap;color:#6a745f}.map-switch select{min-width:0;flex:1;padding:7px 9px;border:1px solid #9da994;background:#f7f7ec;color:#263025;font:600 13px "Noto Sans KR",sans-serif}
+
+/* Faction emblems supplied by the project creator */
+.faction-emblem{width:164px;height:164px;display:flex;align-items:center;justify-content:center;margin:0 0 22px}
+.faction-emblem img{display:block;width:100%;height:100%;object-fit:contain}
+.outside-emblems{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:22px}
+.outside-emblems figure{display:flex;align-items:center;gap:16px;margin:0;padding:14px 18px;border:1px solid #bcc6b0;background:#e3e7d8}
+.outside-emblems img{display:block;width:100px;height:100px;flex:none;object-fit:contain}
+.outside-emblems figcaption{font-size:15px;font-weight:700;color:#35452f}
+@media(max-width:760px){.faction-emblem{width:140px;height:140px;margin-bottom:18px}.outside-emblems figure{flex-direction:column;align-items:flex-start;gap:8px;padding:12px}.outside-emblems img{width:86px;height:86px}}
