@@ -44,7 +44,7 @@
 /* City sector map: fixed artwork with border-only interactive zones */
 .original-map-visual .map-interaction{position:absolute;inset:0;display:block;width:100%;height:100%;overflow:visible}
 .map-interaction .map-zone-hit{fill:rgba(20,30,20,.001);stroke:transparent;stroke-width:4;vector-effect:non-scaling-stroke;cursor:pointer;pointer-events:all;transition:fill .18s,stroke .18s,filter .18s}
-.map-interaction .map-zone-hit:hover,.map-interaction .map-zone-hit:focus-visible{fill:rgba(241,124,67,.045);stroke:#f17c43;stroke-width:4;filter:drop-shadow(0 0 5px #f17c43aa);outline:none}
+.map-interaction .map-zone-hit:hover,.map-interaction .map-zone-hit:focus-visible{fill:rgba(241,124,67,.035);stroke:#304537;stroke-width:3;filter:drop-shadow(0 0 3px #fff5db);outline:none}
 .map-interaction .map-zone-hit.is-selected,.map-interaction .map-zone-hit.is-selected:hover,.map-interaction .map-zone-hit.is-selected:focus-visible{fill:rgba(241,124,67,.08);stroke:#ed692e;stroke-width:6;filter:drop-shadow(0 0 7px #ed692ebd)}
 .map-interaction .map-zone-wall{fill:rgba(20,30,20,.001)}
 
