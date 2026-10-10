@@ -16,7 +16,7 @@ const mapInfo={central:{kicker:'CENTRAL ADMIN',title:'중앙행정',body:'헌터
 const mapDetail=document.querySelector('#map-detail');
 const mapButtons=[...document.querySelectorAll('.map-hotspot,.svg-zone')];
 function selectMapArea(key){const info=mapInfo[key];if(!info||!mapDetail)return;mapButtons.forEach(button=>button.classList.toggle('is-selected',button.dataset.map===key));mapDetail.innerHTML='<span class="map-detail-kicker">'+info.kicker+'</span><h3>'+info.title+'</h3><p>'+info.body+'</p><div>'+info.facts.map(f=>'<b>'+f[0]+'</b><span>'+f[1]+'</span>').join('')+'</div>';}
-mapButtons.forEach(button=>{button.addEventListener('click',()=>{selectMapArea(button.dataset.map);openMapModal(button.dataset.map)});button.addEventListener('keydown',event=>{if(event.key==='Enter'||event.key===' '){event.preventDefault();selectMapArea(button.dataset.map);openMapModal(button.dataset.map)}})});
+mapButtons.forEach(button=>{button.addEventListener('click',()=>{if(mapModal?.classList.contains('is-open')&&button.classList.contains('is-selected')){closeMapModal();return;}selectMapArea(button.dataset.map);openMapModal(button.dataset.map)});button.addEventListener('keydown',event=>{if(event.key==='Enter'||event.key===' '){event.preventDefault();selectMapArea(button.dataset.map);openMapModal(button.dataset.map)}})});
 document.addEventListener('click',event=>{const button=event.target.closest?.('.map-hotspot,.svg-zone');if(button)selectMapArea(button.dataset.map);});
 selectMapArea('central');
 
