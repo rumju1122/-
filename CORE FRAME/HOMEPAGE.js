@@ -77,7 +77,7 @@ function openMapPanel(button,scrollToDetail=true){
     item.setAttribute('aria-expanded',String(active));
   });
   mapPanel.hidden=false;
-  if(scrollToDetail)mapPanel.scrollIntoView({behavior:"smooth",block:"nearest"});
+  if(scrollToDetail)mapPanel.scrollIntoView({behavior:"instant",block:"start"});
 }
 mapButtons.forEach(button=>{
   button.setAttribute('aria-controls','map-detail');

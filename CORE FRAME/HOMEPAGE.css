@@ -29,7 +29,7 @@
 .original-map-visual .map-hotspot.is-selected{transform:translate(-50%,-50%)}
 .original-map-visual .map-hotspot.is-selected{border:2px solid #fff4ce;background:var(--orange);color:#18231f;box-shadow:0 0 0 4px #f17c4388,0 0 20px #f17c4388}
 .city-map .map-detail[hidden]{display:none!important}
-.city-map .map-detail.map-inline-detail{position:relative;top:auto;right:auto;bottom:auto;left:auto;width:100%;max-height:none;overflow:visible;margin:14px 0 0;padding:28px;background:#edf0e1;color:var(--ink);border:1px solid #899681;box-shadow:none;backdrop-filter:none;scroll-margin-top:80px}
+.city-map .map-detail.map-inline-detail{position:relative;z-index:auto;top:auto;right:auto;bottom:auto;left:auto;width:100%;max-height:none;overflow:visible;margin:14px 0 0;padding:28px;background:#edf0e1;color:var(--ink);border:1px solid #899681;box-shadow:none;backdrop-filter:none;scroll-margin-top:80px}
 .city-map .map-caption{padding-right:4px}
 .map-panel-close{position:absolute;top:12px;right:12px;width:34px;height:34px;border:1px solid #899681;background:#263025;color:#f2f0e4;font-size:25px;line-height:1;cursor:pointer}
 .map-panel-close:hover,.map-panel-close:focus-visible{background:var(--orange);color:#162018}
