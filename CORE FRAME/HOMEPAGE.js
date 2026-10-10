@@ -61,6 +61,7 @@ function openMapPanel(button){
   mapPanel.querySelector('.map-detail-kicker').textContent=info.kicker;
   mapPanel.querySelector('#map-detail-title').textContent=info.title;
   mapPanel.querySelector('.map-facilities').textContent=mapFacilities[key];
+  mapPanel.querySelector('#map-zone-picker').value=key;
   mapPanel.querySelector('.map-description').textContent=info.body;
   const facts=mapPanel.querySelector('.map-facts');
   facts.replaceChildren(...info.facts.flatMap(([label,value])=>{
@@ -86,6 +87,10 @@ mapButtons.forEach(button=>{
   });
 });
 mapPanel?.querySelector('.map-panel-close')?.addEventListener('click',()=>closeMapPanel(true));
+mapPanel?.querySelector('#map-zone-picker')?.addEventListener('change',event=>{
+  const button=mapButtons.find(item=>item.dataset.map===event.target.value);
+  if(button)openMapPanel(button);
+});
 document.addEventListener('keydown',event=>{
   if(event.key==='Escape'&&mapPanel&&!mapPanel.hidden)closeMapPanel(true);
 });
