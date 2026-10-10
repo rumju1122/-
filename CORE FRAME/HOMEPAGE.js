@@ -51,7 +51,7 @@ function closeMapPanel(restoreFocus=false){
   });
   if(restoreFocus)lastMapButton?.focus();
 }
-function openMapPanel(button){
+function openMapPanel(button,scrollToDetail=true){
   const key=button.dataset.map;
   const info=mapInfo[key];
   if(!info||!mapPanel)return;
@@ -77,6 +77,7 @@ function openMapPanel(button){
     item.setAttribute('aria-expanded',String(active));
   });
   mapPanel.hidden=false;
+  if(scrollToDetail)mapPanel.scrollIntoView({behavior:"smooth",block:"nearest"});
 }
 mapButtons.forEach(button=>{
   button.setAttribute('aria-controls','map-detail');
@@ -89,7 +90,7 @@ mapButtons.forEach(button=>{
 mapPanel?.querySelector('.map-panel-close')?.addEventListener('click',()=>closeMapPanel(true));
 mapPanel?.querySelector('#map-zone-picker')?.addEventListener('change',event=>{
   const button=mapButtons.find(item=>item.dataset.map===event.target.value);
-  if(button)openMapPanel(button);
+  if(button)openMapPanel(button,false);
 });
 document.addEventListener('keydown',event=>{
   if(event.key==='Escape'&&mapPanel&&!mapPanel.hidden)closeMapPanel(true);
