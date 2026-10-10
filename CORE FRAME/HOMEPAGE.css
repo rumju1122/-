@@ -40,3 +40,10 @@
 .city-map .map-detail.map-side-panel .map-facts{display:grid;grid-template-columns:auto 1fr;gap:5px 14px;border-top:1px solid #c3c9b8;margin:18px 0 0;padding-top:12px;font-size:14px}
 .map-facts dt{color:#69775b;font-weight:700}.map-facts dd{margin:0}
 @media(max-width:760px){.city-map .map-detail.map-side-panel{position:fixed;top:auto;right:0;bottom:0;left:0;width:100%;max-height:min(68dvh,500px);padding:26px 24px 30px;border-radius:18px 18px 0 0;border-bottom:0;box-shadow:0 -12px 40px #101a14aa}.city-map .map-detail.map-side-panel h3{font-size:24px}}
+
+/* City sector map: fixed artwork with border-only interactive zones */
+.original-map-visual .map-interaction{position:absolute;inset:0;display:block;width:100%;height:100%;overflow:visible}
+.map-interaction .map-zone-hit{fill:rgba(20,30,20,.001);stroke:transparent;stroke-width:4;vector-effect:non-scaling-stroke;cursor:pointer;pointer-events:all;transition:fill .18s,stroke .18s,filter .18s}
+.map-interaction .map-zone-hit:hover,.map-interaction .map-zone-hit:focus-visible{fill:rgba(241,124,67,.045);stroke:#f17c43;stroke-width:4;filter:drop-shadow(0 0 5px #f17c43aa);outline:none}
+.map-interaction .map-zone-hit.is-selected,.map-interaction .map-zone-hit.is-selected:hover,.map-interaction .map-zone-hit.is-selected:focus-visible{fill:rgba(241,124,67,.08);stroke:#ed692e;stroke-width:6;filter:drop-shadow(0 0 7px #ed692ebd)}
+.map-interaction .map-zone-wall{fill:rgba(20,30,20,.001)}
