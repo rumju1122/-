@@ -19,3 +19,11 @@ function selectMapArea(key){const info=mapInfo[key];if(!info||!mapDetail)return;
 mapButtons.forEach(button=>button.addEventListener('click',()=>selectMapArea(button.dataset.map)));
 document.addEventListener('click',event=>{const button=event.target.closest?.('.map-hotspot');if(button)selectMapArea(button.dataset.map);});
 selectMapArea('central');
+
+const mapModal=document.querySelector('#map-modal');
+const mapModalInfo=document.querySelector('#map-modal-info');
+function openMapModal(key){const info=mapInfo[key];if(!info||!mapModal||!mapModalInfo)return;mapModalInfo.innerHTML='<span class="map-detail-kicker">'+info.kicker+'</span><h2 id="map-modal-title">'+info.title+'</h2><p>'+info.body+'</p><div>'+info.facts.map(f=>'<b>'+f[0]+'</b><span>'+f[1]+'</span>').join('')+'</div>';mapModal.classList.add('is-open');mapModal.setAttribute('aria-hidden','false');document.body.classList.add('map-modal-open');mapModal.querySelector('.map-modal-close').focus();}
+function closeMapModal(){if(!mapModal)return;mapModal.classList.remove('is-open');mapModal.setAttribute('aria-hidden','true');document.body.classList.remove('map-modal-open');}
+mapButtons.forEach(button=>button.addEventListener('click',()=>openMapModal(button.dataset.map)));
+mapModal?.querySelectorAll('[data-map-close]').forEach(button=>button.addEventListener('click',closeMapModal));
+document.addEventListener('keydown',event=>{if(event.key==='Escape')closeMapModal();});
