@@ -94,3 +94,11 @@
  .outside-emblems figure{min-height:150px;padding:14px 8px;gap:6px}
  .outside-emblems img{width:90px;height:90px}
 }
+
+/* Vertically center emblems against the complete faction copy */
+@media(max-width:900px){
+ .faction-grid article .faction-emblem{grid-column:1;grid-row:1/5;align-self:center}
+}
+@media(max-width:640px){
+ .faction-grid article .faction-line,.faction-grid article p:last-child{grid-column:2}
+}
