@@ -58,3 +58,39 @@
 .outside-emblems img{display:block;width:100px;height:100px;flex:none;object-fit:contain}
 .outside-emblems figcaption{font-size:15px;font-weight:700;color:#35452f}
 @media(max-width:760px){.faction-emblem{width:140px;height:140px;margin-bottom:18px}.outside-emblems figure{flex-direction:column;align-items:flex-start;gap:8px;padding:12px}.outside-emblems img{width:86px;height:86px}}
+
+/* Balanced faction identities: one visual axis across all cards */
+.faction-grid article,
+.faction-grid article:first-child,
+.faction-grid article:last-child{padding:34px 30px 38px;min-width:0;display:flex;flex-direction:column;align-items:stretch}
+.faction-grid article:not(:last-child){border-right:1px solid #adb79e}
+.faction-emblem{width:100%;height:174px;display:grid;place-items:center;margin:0 0 22px}
+.faction-emblem img{width:166px;height:166px;object-fit:contain}
+.faction-grid article .eyebrow,.faction-grid article h3,.faction-grid article .faction-line{text-align:center}
+.faction-grid article .faction-line{min-height:2.2em}
+.faction-grid article p:last-child{border-top:1px solid #b9c4ac;padding-top:18px;margin-top:18px}
+.outside-emblems{max-width:650px;gap:14px}
+.outside-emblems figure{min-height:194px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:9px;padding:20px 14px}
+.outside-emblems img{width:120px;height:120px;flex:none}
+.outside-emblems figcaption{text-align:center}
+@media(max-width:900px){
+ .faction-grid{grid-template-columns:1fr}
+ .faction-grid article,.faction-grid article:first-child,.faction-grid article:last-child{display:grid;grid-template-columns:140px minmax(0,1fr);grid-template-rows:auto auto auto 1fr;column-gap:28px;padding:25px 0;border-right:0;border-bottom:1px solid #adb79e}
+ .faction-grid article:not(:last-child){border-right:0}
+ .faction-grid article:last-child{border-bottom:0}
+ .faction-emblem{grid-column:1;grid-row:1/5;width:140px;height:140px;margin:0;align-self:start}
+ .faction-emblem img{width:138px;height:138px}
+ .faction-grid article .eyebrow,.faction-grid article h3,.faction-grid article .faction-line{text-align:left;grid-column:2}
+ .faction-grid article .faction-line{min-height:0;margin-top:12px}
+ .faction-grid article p:last-child{grid-column:2;margin-top:12px;padding-top:12px}
+}
+@media(max-width:640px){
+ .faction-grid article,.faction-grid article:first-child,.faction-grid article:last-child{grid-template-columns:98px minmax(0,1fr);column-gap:18px;padding:24px 0}
+ .faction-emblem{width:98px;height:98px;grid-row:1/3}
+ .faction-emblem img{width:98px;height:98px}
+ .faction-grid article .faction-line,.faction-grid article p:last-child{grid-column:1/-1}
+ .faction-grid article .faction-line{margin-top:14px}
+ .outside-emblems{gap:10px}
+ .outside-emblems figure{min-height:150px;padding:14px 8px;gap:6px}
+ .outside-emblems img{width:90px;height:90px}
+}
